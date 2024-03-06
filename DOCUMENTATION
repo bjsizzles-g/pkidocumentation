@@ -1,0 +1,17 @@
+#PKI Documentation:
+
+
+We are looking at feasibility study on the usage of PKI certs from HashiCorp Vault to connect to a Windows server. 
+We will need to ensure that the Windows server is configured to accept client certificates for authentication. 
+We will also need to configure the client (e.g., your application or tool) to present the certificate when connecting to the Windows server. 
+
+# Configuration needed at Windows Side:
+
+Steps Needed:
+
+1. Install the Certificate Authority (CA) Certificate:
+
+If you haven't already, install the root CA certificate (the one used to sign the client certificates) on the Windows server.
+You can do this by importing the certificate into the "Trusted Root Certification Authorities" store using the Certificate Manager (certmgr.msc).
+
+2. Set-Item -Path WSMan:\localhost\Service\Auth\ClientCert -Value $true
