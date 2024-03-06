@@ -26,3 +26,10 @@ You can do this by importing the certificate into the "Trusted Root Certificatio
         insertafter: EOF
         state: present
       become: true
+
+
+- name: Source .bashrc
+  shell: source ~/.bashrc
+  args:
+    executable: /bin/bash
+  become: true
